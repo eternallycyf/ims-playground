@@ -1,5 +1,24 @@
 # Changelog
 
+### [Version&nbsp;1.1.1](https://github.com/eternallycyf/ims-playground/compare/v1.1.0...v1.1.1)
+
+<sup>Released on **2024-05-01**</sup>
+
+#### 🐛 修复
+
+- Logo src use https.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Logo src use https ([080a187](https://github.com/eternallycyf/ims-playground/commit/080a187))
+
+</details>
+
 ## [Version&nbsp;1.1.0](https://github.com/eternallycyf/ims-playground/compare/v1.0.0...v1.1.0)
 
 <sup>Released on **2024-05-01**</sup>
