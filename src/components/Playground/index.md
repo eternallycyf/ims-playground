@@ -1,14 +1,14 @@
 ---
-title: Hello
-description: Hello
+title: Playground
+description: React Playground
 toc: content
 group:
-  title: 分组
+  title: 核心
   order: 0
 demo:
   cols: 2
 ---
 
-## Hello
+## Playground
 
 <code src='./demo/index.tsx'></code>

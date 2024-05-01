@@ -1,18 +1,18 @@
 {
-  "name": "ims-template",
-  "version": "1.6.0",
-  "description": "a online docs and npm package template",
+  "name": "ims-playground",
+  "version": "0.0.0",
+  "description": "react playground",
   "keywords": [
-    "npm",
-    "template"
+    "react",
+    "playground"
   ],
-  "homepage": "https://github.com/eternallycyf/ims-template",
+  "homepage": "https://github.com/eternallycyf/ims-playground",
   "bugs": {
-    "url": "https://github.com/eternallycyf/ims-template/issues/new"
+    "url": "https://github.com/eternallycyf/ims-playground/issues/new"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/eternallycyf/ims-template.git"
+    "url": "https://github.com/eternallycyf/ims-playground.git"
   },
   "license": "MIT",
   "author": "eternallycyf(969475322@qq.com)",

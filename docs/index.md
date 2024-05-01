@@ -1,12 +1,12 @@
 ---
 hero:
-  title: ims-template
-  description: a online docs and npm package template
+  title: ims-playground
+  description: react playground
   actions:
     - text: 快速上手
-      link: /guide
+      link: /components/playground
     - text: Github
-      link: https://github.com/eternallycyf/ims-template/
+      link: https://github.com/eternallycyf/ims-playground/
 ---
 
 <embed src="../README.md"></embed>
