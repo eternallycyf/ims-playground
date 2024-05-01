@@ -59,6 +59,8 @@ node 版本 v18.13.0
 
 这是 react playground, 用于在线演示 react 组件。
 
+vue 请参考: [Vue SFC Playground](https://play.vuejs.org/)
+
 ## 快速上手
 
 ### 安装
