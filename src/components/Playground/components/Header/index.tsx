@@ -7,7 +7,7 @@ export default function Header() {
         <img
           alt="logo"
           style={{ width: 16, height: 16 }}
-          src={require('../../../../../public/images/origin.png')}
+          src="https://ims-view.site/images/origin.png"
         />
         <span>React Playground</span>
       </div>
