@@ -6,6 +6,26 @@
 
 #### ✨ 新特性
 
+- Add umd build, update config.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add umd build ([3c3a480](https://github.com/eternallycyf/ims-playground/commit/3c3a480))
+- Update config ([fec9056](https://github.com/eternallycyf/ims-playground/commit/fec9056))
+
+</details>
+
+## [Version&nbsp;1.2.0](https://github.com/eternallycyf/ims-playground/compare/v1.1.1...v1.2.0)
+
+<sup>Released on **2024-05-05**</sup>
+
+#### ✨ 新特性
+
 - Add umd build, add umd build.
 
 <br/>
