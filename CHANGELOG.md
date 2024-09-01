@@ -1,5 +1,34 @@
 # Changelog
 
+## [Version&nbsp;1.3.0](https://github.com/eternallycyf/ims-playground/compare/v1.2.0...v1.3.0)
+
+<sup>Released on **2024-09-01**</sup>
+
+#### ✨ 新特性
+
+- Add tabs toggle.
+
+#### 📝 文档
+
+- Footer z-index, footer z-index, update LICENSE.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add tabs toggle ([d5eb908](https://github.com/eternallycyf/ims-playground/commit/d5eb908))
+
+#### Documentation
+
+- Footer z-index ([fb8f269](https://github.com/eternallycyf/ims-playground/commit/fb8f269))
+- Footer z-index ([73eaa02](https://github.com/eternallycyf/ims-playground/commit/73eaa02))
+- Update LICENSE ([7b6187e](https://github.com/eternallycyf/ims-playground/commit/7b6187e))
+
+</details>
+
 ## [Version&nbsp;1.2.0](https://github.com/eternallycyf/ims-playground/compare/v1.1.1...v1.2.0)
 
 <sup>Released on **2024-05-05**</sup>
