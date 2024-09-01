@@ -1,3 +1,7 @@
-import { Playground } from 'ims-playground';
+import { Playground, PlaygroundProvider } from 'ims-playground';
 
-export default () => <Playground />;
+export default () => (
+  <PlaygroundProvider>
+    <Playground />
+  </PlaygroundProvider>
+);

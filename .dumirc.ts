@@ -76,7 +76,7 @@ export default defineConfig({
     style,
   ],
   outputPath: 'docs-dist',
-  devtool: isProd ? false : 'source-map',
+  devtool: false,
   clickToComponent: {},
   ignoreMomentLocale: true,
   targets: { chrome: 79 },
@@ -88,9 +88,6 @@ export default defineConfig({
   mock: {},
   exportStatic: false,
   html2sketch: {},
-  mfsu: {
-    runtimePublicPath: true,
-  },
   resolve: {
     docDirs: ['docs'],
     atomDirs: [{ type: 'component', dir: './src/components' }],
@@ -98,15 +95,22 @@ export default defineConfig({
     codeBlockMode: 'passive',
   },
   chainWebpack(config) {
-    // 配置 worker-loader 处理 .worker 文件
+    const resourceQuery = /raw/;
+
     config.module
-      .rule('worker')
-      .test(/\.worker\.js$/)
-      .use('worker-loader')
-      .loader('worker-loader')
-      .options({
-        inline: 'no-fallback', // 或者 'fallback', 根据需求选择
-        filename: '[name].[hash].worker.js',
-      });
+      .rule('tsx-raw')
+      .test(/\.ejs?$/i)
+      .resourceQuery(resourceQuery)
+      .type('asset/source')
+      .end();
+
+    // 处理 .json 文件
+    config.module
+      .rule('json-raw')
+      .test(/\.json$/i)
+      .resourceQuery(resourceQuery)
+      .type('asset/source')
+      .parser({ parse: false }) // 防止默认的 JSON 解析
+      .end();
   },
 });

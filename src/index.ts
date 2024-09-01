@@ -1,2 +1,2 @@
-export { default as Playground } from './components/Playground';
+export { default as Playground, PlaygroundProvider } from './components/Playground';
 export * from './components/Playground/interface';
