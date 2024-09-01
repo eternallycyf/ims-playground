@@ -1,5 +1,24 @@
 # Changelog
 
+### [Version&nbsp;1.3.1](https://github.com/eternallycyf/ims-playground/compare/v1.3.0...v1.3.1)
+
+<sup>Released on **2024-09-01**</sup>
+
+#### 🐛 修复
+
+- Remove extar devDependencies.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Remove extar devDependencies ([c9f8f15](https://github.com/eternallycyf/ims-playground/commit/c9f8f15))
+
+</details>
+
 ## [Version&nbsp;1.3.0](https://github.com/eternallycyf/ims-playground/compare/v1.2.0...v1.3.0)
 
 <sup>Released on **2024-09-01**</sup>
