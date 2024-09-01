@@ -82,7 +82,7 @@ export default defineConfig({
   targets: { chrome: 79 },
   codeSplitting: { jsStrategy: 'granularChunks' },
   themeConfig,
-  ssr: isProd ? {} : false,
+  ssr: false,
   extraBabelPlugins: ['antd-style'],
   hash: true,
   mock: {},
@@ -96,5 +96,17 @@ export default defineConfig({
     atomDirs: [{ type: 'component', dir: './src/components' }],
     entryFile: './src/index.ts',
     codeBlockMode: 'passive',
+  },
+  chainWebpack(config) {
+    // 配置 worker-loader 处理 .worker 文件
+    config.module
+      .rule('worker')
+      .test(/\.worker\.js$/)
+      .use('worker-loader')
+      .loader('worker-loader')
+      .options({
+        inline: 'no-fallback', // 或者 'fallback', 根据需求选择
+        filename: '[name].[hash].worker.js',
+      });
   },
 });
