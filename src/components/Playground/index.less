@@ -12,6 +12,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: var(--bg);
+  color: var(--text);
 
   .logo {
     display: flex;
@@ -23,4 +25,22 @@
       margin-right: 10px;
     }
   }
+}
+
+.light {
+  --text: #444;
+  --bg: #fff;
+  --border: #ddd;
+  --box-shadow: #00000054;
+  --primary: #00d8fe;
+  --dialog: #fff;
+}
+
+.dark {
+  --text: #fff;
+  --bg: #1a1a1a;
+  --border: #383838;
+  --box-shadow: #0000;
+  --primary: #00d8fe;
+  --dialog: #2a2a2a;
 }

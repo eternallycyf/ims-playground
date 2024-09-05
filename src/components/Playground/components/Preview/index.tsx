@@ -2,8 +2,16 @@ import { useContext, useEffect, useState } from 'react';
 import { IMPORT_MAP_FILE_NAME } from '../../files';
 import { PlaygroundContext } from '../../PlaygroundContext';
 import Editor from '../CodeEditor/Editor';
+import { Message } from '../Message';
 import { compile } from './compiler';
 import iframeRaw from './iframe.html.ejs?raw';
+
+interface MessageData {
+  data: {
+    type: string;
+    message: string;
+  };
+}
 
 export default function Preview() {
   const { files } = useContext(PlaygroundContext);
@@ -21,6 +29,22 @@ export default function Preview() {
     return URL.createObjectURL(new Blob([res], { type: 'text/html' }));
   };
   const [iframeUrl, setIframeUrl] = useState(getIframeUrl());
+
+  const [error, setError] = useState('');
+
+  const handleMessage = (msg: MessageData) => {
+    const { type, message } = msg.data;
+    if (type === 'ERROR') {
+      setError(message);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('message', handleMessage);
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
 
   useEffect(() => {
     const res = compile(files);
@@ -42,6 +66,8 @@ export default function Preview() {
           border: 'none',
         }}
       />
+
+      <Message type="error" content={error} />
       {/* <Editor file={{
             name: 'dist.js',
             value: compiledCode,
