@@ -1,5 +1,24 @@
 # Changelog
 
+## [Version&nbsp;1.4.0](https://github.com/eternallycyf/ims-playground/compare/v1.3.1...v1.4.0)
+
+<sup>Released on **2024-09-05**</sup>
+
+#### ✨ 新特性
+
+- Iframe preview.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Iframe preview ([8e12727](https://github.com/eternallycyf/ims-playground/commit/8e12727))
+
+</details>
+
 ### [Version&nbsp;1.3.1](https://github.com/eternallycyf/ims-playground/compare/v1.3.0...v1.3.1)
 
 <sup>Released on **2024-09-01**</sup>
