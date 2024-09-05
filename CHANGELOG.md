@@ -1,5 +1,24 @@
 # Changelog
 
+## [Version&nbsp;1.5.0](https://github.com/eternallycyf/ims-playground/compare/v1.4.0...v1.5.0)
+
+<sup>Released on **2024-09-05**</sup>
+
+#### ✨ 新特性
+
+- Add and delete files.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add and delete files ([69897df](https://github.com/eternallycyf/ims-playground/commit/69897df))
+
+</details>
+
 ## [Version&nbsp;1.4.0](https://github.com/eternallycyf/ims-playground/compare/v1.3.1...v1.4.0)
 
 <sup>Released on **2024-09-05**</sup>
