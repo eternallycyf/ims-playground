@@ -1,6 +1,6 @@
-import React, { createContext, useState, type PropsWithChildren } from 'react';
+import React, { createContext, useEffect, useState, type PropsWithChildren } from 'react';
 import { initFiles } from './files';
-import { fileName2Language } from './utils';
+import { compress, fileName2Language, uncompress } from './utils';
 
 export interface File {
   name: string;
@@ -26,13 +26,24 @@ export interface PlaygroundContextProps {
   updateFileName: (oldFieldName: string, newFieldName: string) => void;
 }
 
+const getFilesFromUrl = () => {
+  let files: Files | undefined;
+  try {
+    const hash = uncompress(window.location.hash.slice(1));
+    files = JSON.parse(hash);
+  } catch (error) {
+    console.error(error);
+  }
+  return files;
+};
+
 export const PlaygroundContext = createContext<PlaygroundContextProps>({
   selectedFileName: 'App.tsx',
 } as PlaygroundContextProps);
 
 export const PlaygroundProvider = (props: PropsWithChildren) => {
   const { children } = props;
-  const [files, setFiles] = useState<Files>(initFiles);
+  const [files, setFiles] = useState<Files>(getFilesFromUrl() || initFiles);
   const [selectedFileName, setSelectedFileName] = useState('App.tsx');
   const [theme, setTheme] = useState<Theme>('light');
 
@@ -65,6 +76,11 @@ export const PlaygroundProvider = (props: PropsWithChildren) => {
       ...newFile,
     });
   };
+
+  useEffect(() => {
+    const hash = compress(JSON.stringify(files));
+    window.location.hash = encodeURIComponent(hash);
+  }, [files]);
 
   return (
     <PlaygroundContext.Provider
