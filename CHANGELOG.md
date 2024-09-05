@@ -1,5 +1,24 @@
 # Changelog
 
+## [Version&nbsp;1.6.0](https://github.com/eternallycyf/ims-playground/compare/v1.5.0...v1.6.0)
+
+<sup>Released on **2024-09-05**</sup>
+
+#### ✨ 新特性
+
+- Add theme.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add theme ([c1c2b5a](https://github.com/eternallycyf/ims-playground/commit/c1c2b5a))
+
+</details>
+
 ## [Version&nbsp;1.5.0](https://github.com/eternallycyf/ims-playground/compare/v1.4.0...v1.5.0)
 
 <sup>Released on **2024-09-05**</sup>
