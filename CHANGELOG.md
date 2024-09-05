@@ -1,5 +1,24 @@
 # Changelog
 
+## [Version&nbsp;1.7.0](https://github.com/eternallycyf/ims-playground/compare/v1.6.0...v1.7.0)
+
+<sup>Released on **2024-09-05**</sup>
+
+#### ✨ 新特性
+
+- Add share and download code btn.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's improved
+
+- Add share and download code btn ([79b1214](https://github.com/eternallycyf/ims-playground/commit/79b1214))
+
+</details>
+
 ## [Version&nbsp;1.6.0](https://github.com/eternallycyf/ims-playground/compare/v1.5.0...v1.6.0)
 
 <sup>Released on **2024-09-05**</sup>
