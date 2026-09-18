@@ -50,9 +50,14 @@ export const PlaygroundContext = createContext<PlaygroundContextProps>({
   selectedFileName: 'App.tsx',
 } as PlaygroundContextProps);
 
-export const PlaygroundProvider = (props: PropsWithChildren) => {
-  const { children } = props;
-  const [files, setFiles] = useState<Files>(getFilesFromUrl() || initFiles);
+export interface PlaygroundProviderProps extends PropsWithChildren {
+  /** 覆盖默认模板；URL hash 仍优先 */
+  initialFiles?: Files;
+}
+
+export const PlaygroundProvider = (props: PlaygroundProviderProps) => {
+  const { children, initialFiles } = props;
+  const [files, setFiles] = useState<Files>(getFilesFromUrl() || initialFiles || initFiles);
   const [selectedFileName, setSelectedFileName] = useState('App.tsx');
   const [theme, setTheme] = useState<Theme>('dark');
 

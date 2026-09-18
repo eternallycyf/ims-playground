@@ -19,10 +19,14 @@ export default function Preview() {
   const [error, setError] = useState('');
 
   const getIframeUrl = (code: string = compiledCode) => {
+    const importMap = files[IMPORT_MAP_FILE_NAME].value.replaceAll(
+      '__VITE_ORIGIN__',
+      window.location.origin,
+    );
     const res = iframeTemplate
       .replace(
         '<script type="importmap"></script>',
-        `<script type="importmap">${files[IMPORT_MAP_FILE_NAME].value}</script>`,
+        `<script type="importmap">${importMap}</script>`,
       )
       .replace(
         '<script type="module" id="appSrc"></script>',

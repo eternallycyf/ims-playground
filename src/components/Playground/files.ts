@@ -1,4 +1,4 @@
-import { Files } from './PlaygroundContext';
+import type { Files } from './PlaygroundContext';
 import {
   appCssTemplate,
   appTemplate,
