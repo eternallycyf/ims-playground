@@ -1,6 +1,6 @@
 {
   "name": "ims-playground",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "react playground",
   "keywords": [
     "react",
@@ -21,9 +21,6 @@
     "**/*.css",
     "**/style.css"
   ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "types": "es/index.d.ts",
   "exports": {
     ".": {
       "types": "./es/index.d.ts",
@@ -34,6 +31,9 @@
     "./lib/*": "./lib/*",
     "./package.json": "./package.json"
   },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "es/index.d.ts",
   "files": [
     "lib",
     "es"
