@@ -1,7 +1,7 @@
-import { PluginObj } from '@babel/core';
+import type { PluginObj } from '@babel/core';
 import { transform } from '@babel/standalone';
-import { File, Files } from '../../PlaygroundContext';
 import { ENTRY_FILE_NAME } from '../../files';
+import type { File, Files } from '../../PlaygroundContext';
 
 export const beforeTransformCode = (filename: string, code: string) => {
   let _code = code;
@@ -13,7 +13,7 @@ export const beforeTransformCode = (filename: string, code: string) => {
 };
 
 export const babelTransform = (filename: string, code: string, files: Files) => {
-  let _code = beforeTransformCode(filename, code);
+  const _code = beforeTransformCode(filename, code);
   let result = '';
   try {
     result = transform(_code, {

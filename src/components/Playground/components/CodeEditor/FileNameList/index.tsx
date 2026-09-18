@@ -18,6 +18,7 @@ export default function FileNameList() {
   const handleEditComplete = (name: string, prevName: string) => {
     updateFileName(prevName, name);
     setSelectedFileName(name);
+    setCreating(false);
   };
 
   const addTab = () => {

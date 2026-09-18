@@ -1,14 +1,19 @@
-declare module '*.worker' {
-  const WorkerFactory: new () => Worker;
-  export default WorkerFactory;
+declare module '*.less' {
+  const content: any;
+  export default content;
 }
 
-declare module '*.ejs?raw' {
+declare module '*.css' {
+  const content: any;
+  export default content;
+}
+
+declare module '*.svg' {
   const content: string;
   export default content;
 }
 
-declare module '*.json?raw' {
+declare module '*.png' {
   const content: string;
   export default content;
 }

@@ -94,23 +94,4 @@ export default defineConfig({
     entryFile: './src/index.ts',
     codeBlockMode: 'passive',
   },
-  chainWebpack(config) {
-    const resourceQuery = /raw/;
-
-    config.module
-      .rule('tsx-raw')
-      .test(/\.ejs?$/i)
-      .resourceQuery(resourceQuery)
-      .type('asset/source')
-      .end();
-
-    // 处理 .json 文件
-    config.module
-      .rule('json-raw')
-      .test(/\.json$/i)
-      .resourceQuery(resourceQuery)
-      .type('asset/source')
-      .parser({ parse: false }) // 防止默认的 JSON 解析
-      .end();
-  },
 });

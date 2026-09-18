@@ -8,19 +8,21 @@ import './index.less';
 import { PlaygroundContext } from './PlaygroundContext';
 
 export default function ReactPlayground() {
-  const { theme, setTheme } = useContext(PlaygroundContext);
+  const { theme } = useContext(PlaygroundContext);
 
   return (
-    <div className={theme} style={{ height: '100vh' }}>
+    <div className={`ims-playground ${theme}`}>
       <Header />
-      <Allotment defaultSizes={[100, 100]}>
-        <Allotment.Pane minSize={0}>
-          <CodeEditor />
-        </Allotment.Pane>
-        <Allotment.Pane minSize={0}>
-          <Preview />
-        </Allotment.Pane>
-      </Allotment>
+      <div className="playground-body">
+        <Allotment defaultSizes={[100, 100]}>
+          <Allotment.Pane minSize={120}>
+            <CodeEditor />
+          </Allotment.Pane>
+          <Allotment.Pane minSize={120}>
+            <Preview />
+          </Allotment.Pane>
+        </Allotment>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@
 
 react playground
 
-node 版本 v18.13.0
+node 版本 24.x（Vercel 文档站构建）
 
 [Changelog](./CHANGELOG.md) · [Report Bug][issues-url] · [Request Feature][issues-url]
 
@@ -68,8 +68,26 @@ vue 请参考: [Vue SFC Playground](https://play.vuejs.org/)
 推荐使用 `pnpm` 安装
 
 ```bash
-pnpm i ims-playground
+pnpm i ims-playground antd @ant-design/icons lodash
 ```
+
+peer 依赖：`react`、`react-dom`、`antd`、`@ant-design/icons`、`lodash`
+
+### 使用
+
+```tsx
+import { Playground, PlaygroundProvider } from 'ims-playground';
+
+export default function App() {
+  return (
+    <PlaygroundProvider>
+      <Playground />
+    </PlaygroundProvider>
+  );
+}
+```
+
+组件内部会引入 `allotment` 样式与 playground less/css，确保构建工具能处理 CSS / Less。
 
 ### 更新记录
 

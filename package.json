@@ -17,11 +17,23 @@
   "license": "MIT",
   "author": "eternallycyf(969475322@qq.com)",
   "sideEffects": [
-    "**/*.less"
+    "**/*.less",
+    "**/*.css",
+    "**/style.css"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "lib",
     "es"
@@ -73,15 +85,11 @@
     "@monaco-editor/react": "^4.6.0",
     "@typescript/ata": "^0.9.6",
     "allotment": "^1.20.0",
-    "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "fflate": "^0.8.2",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "monaco-editor": "^0.48.0",
-    "raw-loader": "^4.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "typescript": "^5"
   },
   "devDependencies": {
@@ -116,16 +124,23 @@
     "prettier": "^2",
     "prettier-plugin-organize-imports": "^3",
     "prettier-plugin-packagejson": "^2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "semantic-release": "^20",
     "semantic-release-config-gitmoji": "^1",
     "stylelint": "^15",
-    "vitest": "^1.x",
-    "worker-loader": "^3.0.8"
+    "vitest": "^1.x"
   },
   "peerDependencies": {
     "@ant-design/icons": "^5.2.6",
     "antd": "^5.9.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "packageManager": "pnpm@10.16.1",
+  "engines": {
+    "node": "24.x"
   },
   "publishConfig": {
     "access": "public",

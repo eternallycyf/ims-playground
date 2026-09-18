@@ -1,5 +1,4 @@
 import MonacoEditor, { OnMount } from '@monaco-editor/react';
-import fs from 'fs';
 import type { EditorProps } from '../../interface';
 import { createATA } from './ata';
 
@@ -9,8 +8,6 @@ export default function Editor(props: EditorProps) {
   const handleEditorMount: OnMount = (editor, monaco) => {
     editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyJ, () => {
       editor.getAction('editor.action.formatDocument')?.run();
-      // let actions = editor.getSupportedActions().map((a) => a.id);
-      // console.log(actions);
     });
 
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({

@@ -1,46 +1,193 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.ims-playground {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--bg);
+  font-size: 13px;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  color-scheme: light;
+}
+
+.ims-playground.dark {
+  color-scheme: dark;
+}
+
+.ims-playground .playground-body {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+/* Allotment sash — closer to Vue REPL splitters */
+.ims-playground .split-view-view::before,
+.ims-playground .split-view-view::after {
+  background-color: var(--border) !important;
+}
+
+.ims-playground .sash-horizontal,
+.ims-playground .sash-vertical {
+  background: transparent;
+}
+
+.ims-playground .sash-horizontal:hover,
+.ims-playground .sash-vertical:hover,
+.ims-playground .sash-horizontal.active,
+.ims-playground .sash-vertical.active {
+  background: var(--primary) !important;
+  opacity: 0.45;
 }
 
 .header {
-  height: 50px;
-  padding: 0 20px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #000;
-
+  --nav-height: 50px;
+  z-index: 10;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
-  background: var(--bg);
+  height: var(--nav-height);
+  padding: 0 16px;
   color: var(--text);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 0 4px rgb(0 0 0 / 12%);
 
   .logo {
-    display: flex;
-    font-size: 20px;
+    display: inline-flex;
     align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: var(--text);
 
     img {
-      height: 24px;
-      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      color: var(--btn);
+      font-size: 16px;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.15s ease, background-color 0.15s ease;
+
+      &:hover {
+        color: var(--highlight);
+        background: var(--btn-bg);
+      }
     }
   }
 }
 
+.dark .header {
+  box-shadow: none;
+}
+
+.preview-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg);
+  position: relative;
+
+  .preview-toolbar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    height: 38px;
+    padding: 0 12px;
+    color: var(--text-muted);
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .preview-frame {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    padding: 0;
+    border: none;
+    background: #fff;
+  }
+
+  &.dark-preview .preview-frame {
+    background: #1e1e1e;
+  }
+}
+
+.editor-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg);
+  min-height: 0;
+}
+
 .light {
   --text: #444;
+  --text-muted: #888;
   --bg: #fff;
+  --bg-light: #f6f6f6;
   --border: #ddd;
-  --box-shadow: #00000054;
+  --box-shadow: rgb(0 0 0 / 12%);
   --primary: #00d8fe;
   --dialog: #fff;
+  --btn: #666;
+  --btn-bg: #eee;
+  --highlight: #213547;
+  --tab-active: #00b8d9;
 }
 
 .dark {
-  --text: #fff;
+  --text: #ddd;
+  --text-muted: #999;
   --bg: #1a1a1a;
+  --bg-light: #242424;
   --border: #383838;
-  --box-shadow: #0000;
+  --box-shadow: transparent;
   --primary: #00d8fe;
   --dialog: #2a2a2a;
+  --btn: #aaa;
+  --btn-bg: #333;
+  --highlight: #fff;
+  --tab-active: #00d8fe;
 }

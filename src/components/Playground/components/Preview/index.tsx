@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { debounce } from 'lodash';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { IMPORT_MAP_FILE_NAME } from '../../files';
 import { PlaygroundContext } from '../../PlaygroundContext';
-import Editor from '../CodeEditor/Editor';
+import { iframeTemplate } from '../../template/content';
 import { Message } from '../Message';
 import { compile } from './compiler';
-import iframeRaw from './iframe.html.ejs?raw';
 
 interface MessageData {
   data: {
@@ -14,23 +14,49 @@ interface MessageData {
 }
 
 export default function Preview() {
-  const { files } = useContext(PlaygroundContext);
+  const { files, theme } = useContext(PlaygroundContext);
   const [compiledCode, setCompiledCode] = useState('');
-  const getIframeUrl = () => {
-    const res = iframeRaw
+  const [error, setError] = useState('');
+
+  const getIframeUrl = (code: string = compiledCode) => {
+    const res = iframeTemplate
       .replace(
         '<script type="importmap"></script>',
         `<script type="importmap">${files[IMPORT_MAP_FILE_NAME].value}</script>`,
       )
       .replace(
         '<script type="module" id="appSrc"></script>',
-        `<script type="module" id="appSrc">${compiledCode}</script>`,
+        `<script type="module" id="appSrc">${code}</script>`,
       );
     return URL.createObjectURL(new Blob([res], { type: 'text/html' }));
   };
-  const [iframeUrl, setIframeUrl] = useState(getIframeUrl());
 
-  const [error, setError] = useState('');
+  const [iframeUrl, setIframeUrl] = useState(() => getIframeUrl(''));
+
+  const runCompile = useMemo(
+    () =>
+      debounce((nextFiles: typeof files) => {
+        try {
+          const res = compile(nextFiles);
+          setCompiledCode(res);
+          setError('');
+        } catch (e) {
+          setError(e instanceof Error ? e.message : String(e));
+        }
+      }, 500),
+    [],
+  );
+
+  useEffect(() => {
+    runCompile(files);
+    return () => {
+      runCompile.cancel();
+    };
+  }, [files, runCompile]);
+
+  useEffect(() => {
+    setIframeUrl(getIframeUrl());
+  }, [files[IMPORT_MAP_FILE_NAME].value, compiledCode]);
 
   const handleMessage = (msg: MessageData) => {
     const { type, message } = msg.data;
@@ -46,33 +72,13 @@ export default function Preview() {
     };
   }, []);
 
-  useEffect(() => {
-    const res = compile(files);
-    setCompiledCode(res);
-  }, [files]);
-
-  useEffect(() => {
-    setIframeUrl(getIframeUrl());
-  }, [files[IMPORT_MAP_FILE_NAME].value, compiledCode]);
-
   return (
-    <div style={{ height: '100%' }}>
-      <iframe
-        src={iframeUrl}
-        style={{
-          width: '100%',
-          height: '100%',
-          padding: 0,
-          border: 'none',
-        }}
-      />
-
+    <div className={`preview-panel${theme === 'dark' ? ' dark-preview' : ''}`}>
+      <div className="preview-toolbar">
+        <span>Preview</span>
+      </div>
+      <iframe className="preview-frame" src={iframeUrl} title="playground-preview" />
       <Message type="error" content={error} />
-      {/* <Editor file={{
-            name: 'dist.js',
-            value: compiledCode,
-            language: 'javascript'
-        }}/> */}
     </div>
   );
 }

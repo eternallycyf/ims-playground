@@ -2,52 +2,110 @@
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  align-items: center;
+  flex-shrink: 0;
+  align-items: stretch;
   box-sizing: border-box;
   height: 38px;
-  border-bottom: 1px solid #ddd;
-  background-color: var(--bg);
+  padding: 0 4px 0 8px;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-light);
   color: var(--text);
 }
 
 .tabs::-webkit-scrollbar {
-  height: 1px;
+  height: 3px;
 }
 
 .tabs::-webkit-scrollbar-track {
-  background-color: #ddd;
+  background-color: transparent;
 }
 
 .tabs::-webkit-scrollbar-thumb {
-  background-color: #ddd;
+  background-color: var(--border);
+  border-radius: 3px;
 }
 
 .tab-item {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  padding: 8px 10px 6px;
-  border-bottom: 3px solid transparent;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
   font-size: 13px;
-  line-height: 20px;
+  line-height: 36px;
+  white-space: nowrap;
   cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  user-select: none;
+}
+
+.tab-item:hover {
+  color: var(--text);
 }
 
 .tab-item.actived {
-  border-bottom: 3px solid skyblue;
-  color: skyblue;
+  border-bottom-color: var(--tab-active);
+  color: var(--tab-active);
+}
+
+.tab-item .tab-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+  border-radius: 3px;
+  opacity: 0.55;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.tab-item:hover .tab-close,
+.tab-item.actived .tab-close {
+  opacity: 0.9;
+}
+
+.tab-item .tab-close:hover {
+  opacity: 1;
+  background-color: var(--btn-bg);
 }
 
 .tab-item:first-child {
-  cursor: text;
+  cursor: default;
 }
 
 .tabs-item-input {
-  padding: 4px 0 4px 10px;
-  width: 90px;
+  padding: 2px 8px;
+  width: 110px;
   outline: none;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 4px;
-  background-color: #ddd;
-  color: #444;
+  background-color: var(--bg);
+  color: var(--text);
   font-size: 13px;
+  line-height: 22px;
+}
+
+.add {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.add:hover {
+  color: var(--highlight);
+  background: var(--btn-bg);
 }
