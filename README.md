@@ -87,6 +87,30 @@ export default function App() {
 }
 ```
 
+自定义初始文件（`initialFiles` 优先于 URL hash；不传时仍可读 hash 分享）：
+
+```tsx
+import { Playground, PlaygroundProvider, initFiles } from 'ims-playground';
+import type { Files } from 'ims-playground';
+
+const files: Files = {
+  ...initFiles,
+  'App.tsx': {
+    name: 'App.tsx',
+    language: 'typescript',
+    value: `/* 你的初始代码 */`,
+  },
+};
+
+export default function App() {
+  return (
+    <PlaygroundProvider initialFiles={files}>
+      <Playground />
+    </PlaygroundProvider>
+  );
+}
+```
+
 组件内部会引入 `allotment` 样式与 playground less/css，确保构建工具能处理 CSS / Less。
 
 ### 更新记录

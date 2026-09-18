@@ -51,13 +51,16 @@ export const PlaygroundContext = createContext<PlaygroundContextProps>({
 } as PlaygroundContextProps);
 
 export interface PlaygroundProviderProps extends PropsWithChildren {
-  /** 覆盖默认模板；URL hash 仍优先 */
+  /**
+   * 覆盖默认模板。
+   * 传入时优先生效（高于 URL hash）；不传时仍可读 hash 分享链接。
+   */
   initialFiles?: Files;
 }
 
 export const PlaygroundProvider = (props: PlaygroundProviderProps) => {
   const { children, initialFiles } = props;
-  const [files, setFiles] = useState<Files>(getFilesFromUrl() || initialFiles || initFiles);
+  const [files, setFiles] = useState<Files>(initialFiles || getFilesFromUrl() || initFiles);
   const [selectedFileName, setSelectedFileName] = useState('App.tsx');
   const [theme, setTheme] = useState<Theme>('dark');
 
