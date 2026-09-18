@@ -1,5 +1,24 @@
 # Changelog
 
+### [Version&nbsp;1.8.1](https://github.com/eternallycyf/ims-playground/compare/v1.8.0...v1.8.1)
+
+<sup>Released on **2026-09-18**</sup>
+
+#### 🐛 修复
+
+- Update packages.
+
+<br/>
+
+<details>
+<summary><kbd>Improvements and Fixes</kbd></summary>
+
+#### What's fixed
+
+- Update packages ([de6bd44](https://github.com/eternallycyf/ims-playground/commit/de6bd44))
+
+</details>
+
 ## [Version&nbsp;1.8.0](https://github.com/eternallycyf/ims-playground/compare/v1.7.0...v1.8.0)
 
 <sup>Released on **2026-09-18**</sup>
